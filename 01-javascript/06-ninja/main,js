@@ -24,4 +24,3 @@ ninja1.sayName();
 ninja1.drinkSake();
 ninja1.showStats();
 
-

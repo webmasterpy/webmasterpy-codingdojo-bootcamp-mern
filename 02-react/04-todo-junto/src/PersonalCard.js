@@ -1,4 +1,4 @@
-import React, {Component} from 'react'
+import React, {Component} from 'react';
 
 class PersonalCard extends Component {
 
@@ -8,6 +8,10 @@ class PersonalCard extends Component {
             edad : this.props.edad
         };
     }
+
+    // aumentarEdad = () => {
+    //     this.setState({ edad: edad+1 }
+    // };
 
     render(){
         const {nombre, apellido, color} = this.props;

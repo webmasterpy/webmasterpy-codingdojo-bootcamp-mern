@@ -37,7 +37,7 @@ const FormularioReducerMail = () => {
         }
     }
 
-    function adminForm(evento){
+    function formularioValidation(evento){
         const {name, value} = evento.target;
         dispatch({
             type: name,
@@ -49,17 +49,17 @@ const FormularioReducerMail = () => {
         <form className="col-lg-6 " onSubmit={(e)=> e.preventDefault()}>
             <div className="form-group">
                 <label htmlFor="txtNombre">Nombre</label>
-                <input type="text" className="form-control" id="txtNombre" name="txtNombre" onChange={adminForm}/>
+                <input type="text" className="form-control" id="txtNombre" name="txtNombre" onChange={formularioValidation}/>
                 {state.txtNombre.error !== null && (<p className='text-danger'>{state.txtNombre.error}</p>)}
             </div>
             <div className="form-group">
                 <label htmlFor="txtApellido">Apellido</label>
-                <input type="text" className="form-control" id="txtApellido" name="txtApellido" onChange={adminForm}/>
+                <input type="text" className="form-control" id="txtApellido" name="txtApellido" onChange={formularioValidation}/>
                 {state.txtApellido.error !== null && (<p className='text-danger'>{state.txtApellido.error}</p>)}
             </div>
             <div className="form-group">
                 <label htmlFor="txtCorreo">Correo</label>
-                <input type="email" className="form-control" id="txtCorreo" name="txtCorreo" onChange={adminForm}/>
+                <input type="email" className="form-control" id="txtCorreo" name="txtCorreo" onChange={formularioValidation}/>
                 {state.txtCorreo.error !== null && (<p className='text-danger'>{state.txtCorreo.error}</p>)}
             </div>
 

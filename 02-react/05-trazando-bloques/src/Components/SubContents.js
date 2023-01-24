@@ -1,8 +1,10 @@
 import React from 'react'
 
-const SubContents = () => {
+const SubContents = (props) => {
   return (
-    <div className="subContent"></div>
+    <div className="subContent">
+      {props.children}
+    </div>
   )
 }
 

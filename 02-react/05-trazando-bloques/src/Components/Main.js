@@ -1,6 +1,6 @@
 import React from 'react'
 
-const Main = props => {
+const Main = (props) => {
   //const {sub} = this.props;
 
   return (

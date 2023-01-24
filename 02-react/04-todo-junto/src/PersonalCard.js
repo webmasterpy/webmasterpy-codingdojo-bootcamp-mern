@@ -9,9 +9,11 @@ class PersonalCard extends Component {
         };
     }
 
-    // aumentarEdad = () => {
-    //     this.setState({ edad: edad+1 }
-    // };
+    aumentarEdad = () => {
+        this.setState({ edad: this.state.edad+1 });
+    }
+
+    //()=>{this.setState({ edad: edad+1 })}
 
     render(){
         const {nombre, apellido, color} = this.props;
@@ -23,7 +25,7 @@ class PersonalCard extends Component {
                 <h1>{apellido}, {nombre}</h1>
                 <p>Edad: {edad}</p>
                 <p>Color: {color}</p>
-                <button onClick={ ()=>{this.setState({ edad: edad+1 })} } type="button">Aumentar Edad</button>
+                <button onClick={ () => this.aumentarEdad() }>Aumentar Edad</button>
                 <br/>
             </div>
             </>

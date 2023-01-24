@@ -5,6 +5,7 @@ import Navigation from './Components/Navigation';
 import Main from './Components/Main';
 import SubContents from './Components/SubContents';
 import Advertisement from './Components/Advertisement';
+import Descripciones from './Components/Descripciones';
 
 function App() {
   return (
@@ -12,7 +13,9 @@ function App() {
       <Header />
       <Navigation />
       <Main>
-        <SubContents />
+        <SubContents>
+          <Descripciones/>
+        </SubContents>
         <SubContents />
         <SubContents />
         <Advertisement />

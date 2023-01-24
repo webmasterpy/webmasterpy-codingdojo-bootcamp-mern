@@ -11,7 +11,7 @@ const FormularioUseState = () => {
     const crearUsuario = (evento)=>{
         evento.preventDefault();
         console.log(evento);
-    }
+    } 
 
     return (
     <>
@@ -20,7 +20,6 @@ const FormularioUseState = () => {
                 <div className="form-group">
                     <label htmlFor="txtNombre">Nombre</label>
                     <input type="text" className="form-control" id="txtNombre" onChange={(evento)=> setNombre(evento.target.value)}/>
-                    {(getNombre.length < 3 && getNombre !== "") ? <p className="alert alert-danger">Nombre debe tener almenos 3 caracteres</p> : ""}
                 </div>
                 <div className="form-group">
                     <label htmlFor="txtApellido">Apellido</label>
@@ -37,7 +36,6 @@ const FormularioUseState = () => {
                 <div className="form-group">
                     <label htmlFor="txtConfirm">Confirma Password</label>
                     <input type="password" className="form-control" id="txtConfirm"  onChange={(evento)=> setConfirma(evento.target.value)}/>
-                    {(getConfirma !== getPassword) ? <p className="alert alert-danger">Password no coinciden</p> : ""}
                 </div>
                 <button type="submit" className="btn btn-primary">Enviar</button>
             </form>

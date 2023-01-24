@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-const FormularioValidacionUseState = () => {
+const FormularioUseState = () => {
 
     const [ getNombre, setNombre ] = useState("");
     const [ getApellido, setApellido ] = useState("");
@@ -53,4 +53,4 @@ const FormularioValidacionUseState = () => {
     )
 }
 
-export default FormularioValidacionUseState
+export default FormularioUseState

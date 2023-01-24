@@ -1,10 +1,10 @@
 import './App.css';
-import FormularioValidacionUseState from './components/FormularioValidacionUseState';
+import FormularioUseState from './components/FormularioUseState';
 
 function App() {
   return (
     <div className="App">
-      <FormularioValidacionUseState/>
+      <FormularioUseState/>
     </div>
   );
 }

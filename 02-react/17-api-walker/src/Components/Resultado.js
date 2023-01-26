@@ -21,15 +21,17 @@ const Resultado = (props) => {
     }, [buscador])
   
     return (
-        <div>
-        {
+        <div className="container">
+          {/* {console.log(responseError)} */}
+          {
+          
             responseError===false
             ?(<ErrorPage/>)
             :
             {
                 'people': <People responseData={responseData} setResponseData={setResponseData}/>
-            }
-        }
+            }[buscador]
+          }
         </div>
     );  
 }

@@ -13,7 +13,7 @@ const Formulario = (props) => {
     // Al enviar el formulario registramos/ seteamos los detalles creados en tarea
     const handleSubmit = (e) => {
         e.preventDefault();
-        setTareas([...tareas, actividad])
+        setTareas([...tareas, actividad]);
         // let task = {
         //     name: input,
         //     isComplete: false,

@@ -11,7 +11,10 @@ const Tareas = (props) => {
         setTareas(nuevaTarea)
     }
 
+    const handleCheck = (index) =>{
+        console.log(index);
 
+    }
 
     return (
     <>
@@ -19,23 +22,23 @@ const Tareas = (props) => {
     <hr/>
     <div className="form-group">
         {   
-            tareas.map((lista)=>(
+            tareas.map((lista, index)=>(
                 <>
                 <div className='bordes listado-bloques'>
                     {/* <h5 className='listado'>{lista.tarea}</h5> */}
                     <label
-                        style={{ textDecorationLine: lista.isComplete ? "line-through" : 'none' }}
+                        style={{ textDecorationLine: "" }}
                         htmlFor="checkbox"
                         className='listado'
                         >
                         {lista.tarea}
-                        </label>
+                    </label>
                     <div className='listado'>
                         <input
                             type="checkbox"
                             name=""
-                            checked={lista.isComplete}
                             className="listado"
+                            onChange={handleCheck(index)}
                         ></input> 
                         <button className='btn btn-sm btn-danger listado' onClick={ ()=> onDelete(lista.tarea) }> Borrar </button>
                     </div>

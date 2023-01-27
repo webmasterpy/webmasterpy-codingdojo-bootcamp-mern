@@ -3,7 +3,7 @@ import React, {useState} from 'react'
 const Formulario = (props) => {
 
     const { tareas, setTareas } = props;
-    const [ actividad, setActividad] = useState('');
+    const [ actividad, setActividad] = useState("");
 
     // Al cargar el texto va seteando el detalles de datos.
     const handleChange = (e) => {
@@ -15,8 +15,8 @@ const Formulario = (props) => {
         e.preventDefault();
         setTareas([...tareas, actividad]);
         // let task = {
-        //     name: input,
-        //     isComplete: false,
+        //     name: actividad,
+        //     estado: false,
         // };
     }
 

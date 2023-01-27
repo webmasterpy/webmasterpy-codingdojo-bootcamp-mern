@@ -5,15 +5,11 @@ const Tareas = (props) => {
     const {tareas, setTareas} = props;
     
     const onDelete = (nombre) =>{
-        //console.log(tareas);
-        let nuevaTarea = tareas.filter((tarea) => tarea.tarea !== nombre);
+        console.log(tareas);
+        //let nuevaTarea = tareas.filter((tarea) => tarea.tarea !== nombre);
         //console.log(nuevaTarea);
-        setTareas(nuevaTarea)
-    }
-
-    const handleCheck = (index) =>{
-        console.log(index);
-
+        //setTareas(nuevaTarea);
+        setTareas([...tareas].filter((item, indice)=> indice !== nombre));
     }
 
     return (
@@ -22,25 +18,24 @@ const Tareas = (props) => {
     <hr/>
     <div className="form-group">
         {   
-            tareas.map((lista, index)=>(
+            tareas.map((lista, indice)=>(
                 <>
                 <div className='bordes listado-bloques'>
                     {/* <h5 className='listado'>{lista.tarea}</h5> */}
-                    <label
-                        style={{ textDecorationLine: "" }}
-                        htmlFor="checkbox"
-                        className='listado'
-                        >
-                        {lista.tarea}
-                    </label>
                     <div className='listado'>
+                        <label
+                        style={{ textDecorationLine: lista.isComplete ? "line-through" : 'none' }}
+                        htmlFor="checkbox"
+                        >
+                        {indice}- {lista.tarea}
+                        </label>
                         <input
                             type="checkbox"
                             name=""
+                            checked={lista.isComplete}
                             className="listado"
-                            onChange={handleCheck(index)}
                         ></input> 
-                        <button className='btn btn-sm btn-danger listado' onClick={ ()=> onDelete(lista.tarea) }> Borrar </button>
+                        <button className='btn btn-sm btn-danger listado' onClick={ ()=> onDelete(indice) }> Borrar </button>
                     </div>
                 </div>
                 </>

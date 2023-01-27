@@ -12,6 +12,22 @@ const Tareas = (props) => {
         setTareas([...tareas].filter((item, indice)=> indice !== nombre));
     }
 
+    const onRefresh = (indice) => {
+        // const newTarea = {...tareas[indice]}
+        // console.log(newTarea);
+        // newTarea.estado = !newTarea.estado;
+        // setTareas([...tareas].splice(indice, 1,newTarea));
+
+        const newList = tareas.map((item,i) => {
+            if (i===index) {
+                return { ...item, estado: !item.estado };
+            } else {
+                return item;
+            }
+        });
+        setTareas(newList);
+    }
+
     return (
     <>
     <div><b>Lista de Tareas</b></div>
@@ -24,7 +40,7 @@ const Tareas = (props) => {
                     {/* <h5 className='listado'>{lista.tarea}</h5> */}
                     <div className='listado'>
                         <label
-                        style={{ textDecorationLine: lista.isComplete ? "line-through" : 'none' }}
+                        style={{ textDecorationLine: lista.estado ? "line-through" : 'none' }}
                         htmlFor="checkbox"
                         >
                         {indice}- {lista.tarea}
@@ -32,8 +48,9 @@ const Tareas = (props) => {
                         <input
                             type="checkbox"
                             name=""
-                            checked={lista.isComplete}
+                            checked={lista.estado}
                             className="listado"
+                            onClick={onRefresh}
                         ></input> 
                         <button className='btn btn-sm btn-danger listado' onClick={ ()=> onDelete(indice) }> Borrar </button>
                     </div>

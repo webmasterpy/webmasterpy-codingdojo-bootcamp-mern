@@ -7,7 +7,7 @@ function App() {
     <div className="App">
       <FormularioProducto logo={logo}/>
     </div>
-  );
+  ); 
 }
 
 export default App;

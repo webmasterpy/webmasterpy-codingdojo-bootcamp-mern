@@ -3,16 +3,13 @@ const cors = require('cors');
 const express = require('express');
 const app = express();
 const PORT = 8000;
-//require('dotenv').config()
-//const cookieParser = require('cookie-parser')
 
-// requerir archivo de configuracion
+// ARCHIVO DE CONFIGURACION
 require('./config/mongoose.config');
 
 // MIDDLEWARE
 app.use(express.json())
 app.use(express.urlencoded({extended:true}))
-//app.use(cookieParser())
 
 // HABILITAMOS EL CORS PARA INTERCANBIO DE RECURSOS
 app.use(cors({

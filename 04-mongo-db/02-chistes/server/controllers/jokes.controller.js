@@ -29,3 +29,10 @@ module.exports.borrarBroma = (req, res) => {
         .then(bromaBorrada => res.json({ jokes: bromaBorrada}))
         .catch(error => res.json({ message: "Error al intentar borrar la Broma", error: err }));
 }
+
+// MODULO RANDOM
+module.exports.buscarBromaRandom = (req, res) => {
+    Jokes.aggregate([{ $sample: { size: 1 } }])
+        .then(bromaRandom => res.json({ jokes: bromaRandom }))
+        .catch((err) => res.json({ message: "Error en buscar broma random ", error: err }));
+    }

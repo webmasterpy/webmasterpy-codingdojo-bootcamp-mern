@@ -18,6 +18,7 @@ const FormularioProducto = (props) => {
             .catch(err => console.log(err))
     }
 
+    
     return (
         <>
         <nav className="navbar navbar-light bg-primary">

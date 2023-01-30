@@ -1,6 +1,6 @@
 import React, {useState} from 'react';
-import axios from 'axios';
 import {useNavigate} from 'react-router-dom'
+import axios from 'axios';
 import Navbar from '../Views/Navbar';
 import ListaProductos from './ListaProductos';
 
@@ -11,17 +11,21 @@ const FormularioProducto = (props) => {
     const [descripcion, setDescripcion] = useState("");
     const navigate = useNavigate();
 
-    const onHandlerSubmit = (e)=> {
+    const onHandlerSubmit = async (e)=> {
         e.preventDefault();
-        axios.post("http://localhost:8000/api/productos/new/",{
+        await axios.post("http://localhost:8000/api/productos/new/",{
             titulo,
             precio,
             descripcion
         })
-            .then(res => { navigate("/#load") })
-            .catch(err => console.log(err))
-    }
+            .then(res => { console.log(res) })
+            .catch(err => console.log(err));
 
+        setTitulo("");
+        setPrecio("");
+        setDescripcion("");
+        navigate("/");
+    }
     
     return (
         <>

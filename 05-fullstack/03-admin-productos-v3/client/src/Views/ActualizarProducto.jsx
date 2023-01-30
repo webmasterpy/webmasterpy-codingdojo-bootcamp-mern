@@ -27,8 +27,9 @@ const ActualizarProducto = (props) => {
             precio,
             descripcion
         })
-            .then(res => console.log(res));
+            .then(res => alert('Editado correctamente.'));
         navigate("/producto/editar/"+id);
+        // navigate("/");
     }
     return (
         <>

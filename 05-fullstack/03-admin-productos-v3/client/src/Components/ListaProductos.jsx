@@ -2,37 +2,47 @@ import React, {useEffect, useState} from 'react';
 import axios from 'axios';
 import {Link, useNavigate} from 'react-router-dom';
 
-const ListaProductos = (props) => {
+const ListaProductos = () => {
 
     const [productos, setProductos] = useState([]);
     const [cargas, setCargas] = useState(false);
     const navigate = useNavigate();
     
+
     useEffect(()=>{
-        axios.get('http://localhost:8000/api/productos/')
-            .then(res=>{
-                //console.log("LLEGO LOS DATOS DE PRODUCTOS:", res.data)
-                setProductos(res.data);
-                setCargas(true);
-            }).catch(err=>{console.log(err)});
+        // axios.get('http://localhost:8000/api/productos/')
+        //     .then(res=>{
+        //         //console.log("LLEGO LOS DATOS DE PRODUCTOS:", res.data)
+        //         setProductos(res.data);
+        //         setCargas(true);
+        //     }).catch(err=>{console.log(err)});
+
+        getListado();
     },[]);
 
-    const borrarProducto = (id) => {
-        //e.preventDefault();
-        axios.delete('http://localhost:8000/api/productos/delete/' + id)
+    const getListado = async() => {
+        const response = await axios.get('http://localhost:8000/api/productos/');
+        setProductos(response.data);
+        setCargas(true);
+    }
+
+    const borrarProducto = async (id) => {
+        
+        await axios.delete('http://localhost:8000/api/productos/delete/' + id)
             .then(res => {
-                borrarDesdeDom(id);
-                navigate('/');
+                // console.log(id);
+                getListado();
             }).catch(err=>{console.log("Error en borrado: ",err)});
     }
 
-    const borrarDesdeDom = (id) => {
-        const newListado = productos.productos.filter(prd => prd._id !== id);
-        console.log(newListado);
-        setProductos(...productos, newListado);
-	}
+    // const borrarDesdeDom = (id) => {
+    //     let newListado = productos.productos.filter(prd => prd._id !== id);
+    //     console.log({newListado});
+    //     setProductos(...productos, {productos:newListado});
+    //     console.log({productos});
+	// }
 
-    console.log("Listado: ",productos.productos)
+    console.log("Listado: ", productos.productos)
 
     return (
     <>
